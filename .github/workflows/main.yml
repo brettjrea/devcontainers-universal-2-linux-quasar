@@ -1,0 +1,35 @@
+name: Copy dist folder to gh-pages branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  copy-dist-folder:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: main
+        submodules: 'recursive'
+        fetch-depth: 0
+
+    - name: Checkout the gh-pages branch
+      uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+        checkout: 'force'
+        submodules: 'recursive'
+        fetch-depth: 0
+
+    - name: Copy dist folder
+      run: cp -r dist/* .
+
+    - name: Commit and push changes
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: "Update dist folder"
+        push: true
