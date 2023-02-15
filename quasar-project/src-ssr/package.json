@@ -1,0 +1,32 @@
+{
+  "name": "quasar-project",
+  "version": "0.0.1",
+  "description": "A Quasar Project",
+  "author": "brettjrea <6890798+brettjrea@users.noreply.github.com>",
+  "private": true,
+  "scripts": {
+    "build": "npm install",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "0.21.4",
+    "vue-i18n": "9.2.2",
+    "pinia": "2.0.30",
+    "@quasar/extras": "1.15.10",
+    "quasar": "2.11.5",
+    "vue": "3.2.47",
+    "vue-router": "4.1.6",
+    "serverless-http": "3.1.1",
+    "compression": "^1.7.4",
+    "express": "^4.17.3",
+    "serialize-javascript": "^6.0.0"
+  },
+  "engines": {
+    "node": "^18 || ^16 || ^14.19",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  },
+  "quasar": {
+    "ssr": true
+  }
+}

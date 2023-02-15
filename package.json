@@ -1,0 +1,23 @@
+{
+  "name": "quasar-project-build",
+  "version": "0.0.1",
+  "description": "A Quasar Project",
+  "productName": "Quasar App",
+  "author": "brettjrea <6890798+brettjrea@users.noreply.github.com>",
+  "private": true,
+  "scripts": {
+    "build": "quasar build"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.0.0",
+    "quasar": "^2.11.6"
+  },
+  "devDependencies": {
+    "@quasar/app-vite": "^1.0.0"
+  },
+  "engines": {
+    "node": "^18 || ^16 || ^14.19",
+    "npm": ">= 6.13.4",
+    "yarn": ">= 1.21.1"
+  }
+}
