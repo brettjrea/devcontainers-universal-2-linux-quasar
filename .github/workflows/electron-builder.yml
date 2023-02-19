@@ -1,4 +1,6 @@
 name: Build & Release
+env:
+  PUBLISH_DIR: devcontainers-universal-2-linux-quasar/devcontainers-universal-2-linux-quasar/quasar-project/dist/electron
 
 on:
   push:
@@ -46,17 +48,9 @@ jobs:
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/') }}
 
-      - name: Move
-        run: cd ./quasar-project/dist/electron
-
-      - name: Create Release
-        uses: actions/create-release@v1
+      - name: Release with Notes
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ env.PUBLISH_DIR }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ matrix.os }}${{github.run_id}}
-          release_name: Release ${{ matrix.os }}${{github.run_id}}
-          body: |
-            This is the release body for version ${{ matrix.os }}${{github.run_id}}.
-          draft: false
-          prerelease: false
