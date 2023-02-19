@@ -1,55 +1,32 @@
-name: Build & Deploy
+name: Build and Deploy
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Check if README.md was updated
-      if: contains(github.event.head_commit.message, 'update README')
-      run: exit 0
-    
     - name: Checkout Code
       uses: actions/checkout@v2
-
-    - name: Override publicPath in quasar.config.js
-      run: |
-        sed -i 's|// publicPath:.*|publicPath: '\''https://brettjrea.github.io/devcontainers-universal-2-linux-quasar/'\','|' quasar-project/quasar.config.js
 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: 'lts/*'
 
-    - name: Cache node_modules
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-
     - name: Install Dependencies
       run: |
-        cd ./quasar-project && npm install
-        npm install axios@^0.21.1
-        npm install vue-i18n@^9.0.0
-        npm install pinia@^2.0.11
-        npm install @quasar/extras@^1.0.0
-        npm install quasar@^2.6.0
-        npm install vue@^3.0.0
-        npm install vue-router@^4.0.0
+        npm install next@^12.0.0 react react-dom
 
     - name: Build
-      run: cd ./quasar-project && npm run build
+      run: npm run build
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
-        folder: ./quasar-project/dist/spa
+        folder: ./out
         branch: gh-pages
-
-    
