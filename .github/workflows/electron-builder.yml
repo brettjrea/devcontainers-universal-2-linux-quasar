@@ -1,6 +1,6 @@
 name: Build & Release
 env:
-  PUBLISH_DIR: quasar-project/dist/electron
+  PUBLISH_DIR: quasar-project/dist/electron/
 
 on:
   push:
