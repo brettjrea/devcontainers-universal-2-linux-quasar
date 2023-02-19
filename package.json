@@ -7,6 +7,9 @@
   "private": true,
   "scripts": {
     "build": "quasar build"
+    "build:macos-latest": "electron-builder --macos",
+    "build:windows-latest": "electron-builder --windows",
+    "build:ubuntu-latest": "electron-builder --linux"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
