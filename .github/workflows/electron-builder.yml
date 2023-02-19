@@ -32,16 +32,13 @@ jobs:
           npm install vue@^3.0.0
           npm install vue-router@^4.0.0
           npm install --save-dev electron-builder
-          
-      - name: Build
-        run: cd ./quasar-project && npm run build-electron   
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1.6.0
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
-          package_root: ./quasar-project/src-electron
+          package_root: ./quasar-project/
           build_script_name: build-electron
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
