@@ -6,11 +6,5 @@
         "ghcr.io/devcontainers-contrib/features/quasar-cli:2": {
             "version": "latest"
         },
-        "portsAttributes": {
-            "4000": {
-                "label": "quasar dev"
-            }
-        }
-    },
     "postCreateCommand": "cd quasar-project && npm install"
 }
