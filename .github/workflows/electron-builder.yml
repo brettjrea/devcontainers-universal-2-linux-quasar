@@ -1,6 +1,6 @@
 name: Build & Release
 env:
-  PUBLISH_DIR: devcontainers-universal-2-linux-quasar/devcontainers-universal-2-linux-quasar/quasar-project/dist/electron
+  PUBLISH_DIR: devcontainers-universal-2-linux-quasar/devcontainers-universal-2-linux-quasar/quasar-project/dist/electron/*
 
 on:
   push:
