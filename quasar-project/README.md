@@ -39,3 +39,12 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+
+
+### Send to Github action
+
+`git commit -am v1.2.3`
+
+`git tag v1.2.3`
+
+`git push && git push --tags`
