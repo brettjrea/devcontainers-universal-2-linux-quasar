@@ -38,7 +38,7 @@ jobs:
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
-          package_root: ./quasar-project/
+          package_root: ./quasar-project
           build_script_name: build-electron
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -46,14 +46,17 @@ jobs:
           # release the app after building
           release: ${{ startsWith(github.ref, 'refs/tags/') }}
 
+      - name: Move
+        run: cd ./quasar-project/dist/electron
+
       - name: Create Release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{github.run_id}}
-          release_name: Release ${{github.run_id}}
+          tag_name: ${{ matrix.os }}${{github.run_id}}
+          release_name: Release ${{ matrix.os }}${{github.run_id}}
           body: |
-            This is the release body for version ${{github.run_id}}.
+            This is the release body for version ${{ matrix.os }}${{github.run_id}}.
           draft: false
           prerelease: false
