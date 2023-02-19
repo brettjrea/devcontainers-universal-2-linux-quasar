@@ -21,6 +21,20 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 14
+      - name: Install Dependencies
+        run: |
+          cd ./quasar-project && npm install
+          npm install axios@^0.21.1
+          npm install vue-i18n@^9.0.0
+          npm install pinia@^2.0.11
+          npm install @quasar/extras@^1.0.0
+          npm install quasar@^2.6.0
+          npm install vue@^3.0.0
+          npm install vue-router@^4.0.0
+          npm install --save-dev electron-builder
+          
+      - name: Build
+        run: cd ./quasar-project && npm run build    
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1.6.0
