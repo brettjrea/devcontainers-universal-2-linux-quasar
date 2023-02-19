@@ -51,6 +51,8 @@ jobs:
       - name: Release with Notes
         uses: softprops/action-gh-release@v1
         with:
+          name: ${{ matrix.os }}
           files: ${{ env.PUBLISH_DIR }}
+          tag_name: ${{ github.run_id }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
