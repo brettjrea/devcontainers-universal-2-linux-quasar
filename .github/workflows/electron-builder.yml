@@ -34,13 +34,15 @@ jobs:
           npm install --save-dev electron-builder
           
       - name: Build
-        run: cd ./quasar-project && npm run build    
+        run: cd ./quasar-project && npm run build-electron   
 
       - name: Build/release Electron app
         uses: samuelmeuli/action-electron-builder@v1.6.0
         with:
           # GitHub token, automatically provided to the action
           # (No need to define this secret in the repo settings)
+          package_root: ./quasar-project/src-electron
+          build_script_name: build-electron
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
           # If the commit is tagged with a version (e.g. "v1.0.0"),
