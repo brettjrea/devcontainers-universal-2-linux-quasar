@@ -46,30 +46,6 @@ jobs:
     - name: Build
       run: cd ./quasar-project && npm run build
 
-    - name: Build Electron Artifacts for Windows
-      if: runner.os == 'windows-latest'
-      uses: electron-userland/electron-builder-action@v2.0.2
-      with:
-        config: ./quasar-project/electron-builder.yml
-        platform: win32
-        artifact-name: '${productName}-setup-${version}.${ext}'
-
-    - name: Build Electron Artifacts for macOS
-      if: runner.os == 'macos-latest'
-      uses: electron-userland/electron-builder-action@v2.0.2
-      with:
-        config: ./quasar-project/electron-builder.yml
-        platform: darwin
-        artifact-name: '${productName}-mac-${version}.${ext}'
-
-    - name: Build Electron Artifacts for Linux
-      if: runner.os == 'ubuntu-latest'
-      uses: electron-userland/electron-builder-action@v2.0.2
-      with:
-        config: ./quasar-project/electron-builder.yml
-        platform: linux
-        artifact-name: '${productName}-linux-${version}.${ext}'
-
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.4.1
       with:
