@@ -52,26 +52,4 @@ jobs:
         folder: ./quasar-project/dist/spa
         branch: gh-pages
 
-    - name: Update publicPath in quasar.config.js
-      run: |
-        sed -i "s|publicPath:.*|publicPath: 'https://quasar-ssr.herokuapp.com/',|g" quasar-project/quasar.config.js
-
-    - name: Build
-      run: cd ./quasar-project && npm run build-ssr
-
-    - name: Build NPM
-      run: cd ./quasar-project/dist/ssr/ && npm install
-
-    - name: Create Procfile for Heroku
-      run: |
-        mkdir -p dist/ssr
-        touch dist/ssr/Procfile
-        echo "web: npm run start" > dist/ssr/Procfile
-      working-directory: ./quasar-project
-
-
-    - name: Deploy to Heroku
-      uses: JamesIves/github-pages-deploy-action@v4.4.1
-      with:
-        folder: ./quasar-project
-        branch: heroku-ssr
+    
