@@ -9,13 +9,11 @@
 		"ghcr.io/devcontainers-contrib/features/quasar-cli:2": {
 			"version": "latest"
 		},
-		
 		"portsAttributes": {
 			"4000": {
 				"label": "quasar dev"
 			}
 		},
-
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
 
@@ -24,7 +22,6 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "cd quasar-project && npm install"
-	
 
 	// Configure tool-specific properties.
 	// "customizations": {},
