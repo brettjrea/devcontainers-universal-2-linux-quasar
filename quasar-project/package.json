@@ -7,6 +7,7 @@
   "private": true,
   "scripts": {
     "build": "quasar build",
+    "build-electron": "quasar build -m electron"
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
@@ -26,6 +27,7 @@
     "@quasar/app-vite": "^1.0.0",
     "autoprefixer": "^10.4.2",
     "electron": "^23.0.0",
+    "electron-builder": "^22.11.7",
     "eslint": "^8.10.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^9.0.0",
