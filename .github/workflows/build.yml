@@ -6,6 +6,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
 
     steps:
     - name: Check if README.md was updated
@@ -51,3 +54,12 @@ jobs:
       with:
         folder: ./quasar-project/dist/spa
         branch: gh-pages
+        
+    - name: Build for ${{ matrix.os }}
+      run: npm run build:${{ matrix.os }}
+      
+    - name: Create package
+      uses: electron-userland/electron-builder@v22
+      with:
+        platform: ${{ matrix.os }}
+        publish: never    
