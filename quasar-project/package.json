@@ -8,7 +8,7 @@
   "scripts": {
     "build": "quasar build",
     "build-electron": "quasar build -m electron --all",
-    "package": "electron-builder -mwl",
+    "package": "electron-builder -wl",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
