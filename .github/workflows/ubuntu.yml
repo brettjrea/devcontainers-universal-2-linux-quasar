@@ -7,11 +7,7 @@ on:
 
 jobs:
   release:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check out Git repository
@@ -31,10 +27,10 @@ jobs:
           npm install quasar@^2.6.0
           npm install vue@^3.0.0
           npm install vue-router@^4.0.0
-          npm install --save-dev electron-builder
+          npm install -g electron-installer-debian
 
       - name: Build
-        run: cd ./quasar-project && npm run build-electron
+        run: cd ./quasar-project && npm run build-electron && $ electron-installer-debian --src dist/electron/Quasar app-linux-x64/ --dest dist/installers/ --arch amd64
 
       - name: Create release
         id: create_release
@@ -51,8 +47,8 @@ jobs:
         uses: actions/upload-release-asset@v1.0.2
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./quasar-project/dist/electron/
-          asset_name: electron-app.zip
-          asset_content_type: application/zip
+          asset_path: ./quasar-project/dist/installers/
+          asset_name: app_0.0.1_amd64.deb
+          asset_content_type: application/deb
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
