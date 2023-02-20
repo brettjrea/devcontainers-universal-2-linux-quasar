@@ -28,6 +28,7 @@ jobs:
           npm install vue@^3.0.0
           npm install vue-router@^4.0.0
           npm install --save-dev electron-installer-debian
+          npm install electron-builder
 
       - name: Build
         run: cd ./quasar-project && npm run build-electron && npm run package-deb
