@@ -13,7 +13,6 @@
     "quasar": "^2.11.6"
   },
   "devDependencies": {
-    "@quasar/app-vite": "^1.0.0"
   },
   "engines": {
     "node": "^18 || ^16 || ^14.19",
