@@ -210,32 +210,31 @@ module.exports = configure(function (/* ctx */) {
          },
         "files": [
         "dist-electron",
-    "dist"
-  ],
-  "mac": {
-    "artifactName": "${productName}_${version}.${ext}",
-    "target": [
-      "dmg"
-    ]
-  },
-  "win": {
-    "target": [
-      {
+        "dist"
+         ],
+        "mac": {
+        "artifactName": "${productName}_${version}.${ext}",
+        "target": [
+        "dmg"
+         ]
+         },
+        "win": {
+        "target": [
+        {
         "target": "nsis",
         "arch": [
           "x64"
         ]
-      }
-    ],
-    "artifactName": "${productName}_${version}.${ext}"
-  },
-  "nsis": {
-    "oneClick": false,
-    "perMachine": false,
-    "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false
-  }
-}
+        }
+        ],
+        "artifactName": "${productName}_${version}.${ext}"
+         },
+        "nsis": {
+        "oneClick": false,
+        "perMachine": false,
+        "allowToChangeInstallationDirectory": true,
+        "deleteAppDataOnUninstall": false
+        }
       }
     },
 
