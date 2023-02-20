@@ -31,7 +31,7 @@ jobs:
           npm install electron-builder
 
       - name: Build
-        run: cd ./quasar-project && npm run build-electron && npm run package-deb
+        run: cd ./quasar-project && npm run package
 
       - name: Create release
         id: create_release
