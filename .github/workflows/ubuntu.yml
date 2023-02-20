@@ -30,7 +30,7 @@ jobs:
           npm install electron-installer-debian
 
       - name: Build
-        run: cd ./quasar-project && npm run build-electron && $ electron-installer-debian --src dist/electron/Quasar app-linux-x64/ --dest dist/installers/ --arch amd64
+        run: cd ./quasar-project && npm run build-electron && electron-installer-debian --src dist/electron/Quasar app-linux-x64/ --dest dist/installers/ --arch amd64
 
       - name: Create release
         id: create_release
