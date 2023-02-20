@@ -8,7 +8,7 @@
   "scripts": {
     "build": "quasar build",
     "build-electron": "quasar build -m electron --all",
-    "package-deb": "electron-installer-debian --src /home/runner/work/devcontainers-universal-2-linux-quasar/devcontainers-universal-2-linux-quasar/quasar-project/dist/electron/unpackaged/ --dest /home/runner/work/devcontainers-universal-2-linux-quasar/devcontainers-universal-2-linux-quasar/quasar-project/dist/installer/ --arch amd64",
+    "package-deb": "electron-installer-debian --src ./quasar-project/dist/electron/packaged/ --dest ./quasar-project/dist/installer/ --arch amd64",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
     "test": "echo \"No test specified\" && exit 0"
