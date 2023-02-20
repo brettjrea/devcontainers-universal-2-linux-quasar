@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "build": "quasar build",
-    "build-electron": "quasar build -m electron",
+    "build-electron": "quasar build -m electron --all",
     "package-deb": "electron-installer-debian --src ./quasar-project/dist/electron/packaged/ --dest ./quasar-project/dist/installers/ --arch amd64",
     "lint": "eslint --ext .js,.vue ./",
     "format": "prettier --write \"**/*.{js,vue,scss,html,md,json}\" --ignore-path .gitignore",
