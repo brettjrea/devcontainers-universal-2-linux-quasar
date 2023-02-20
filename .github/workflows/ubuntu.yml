@@ -32,7 +32,7 @@ jobs:
         
 
       - name: Build
-        run: cd ./quasar-project && npm run package
+        run: cd ./quasar-project && electron-build && npm run package
 
       - name: Create release
         id: create_release
